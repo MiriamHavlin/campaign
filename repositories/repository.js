@@ -2,9 +2,8 @@ import mongoose from "mongoose";
 
 
 export class Repository{
-    constructor(model, valid_model){
+    constructor(model){
         this.model = model;
-        this.valid_model = valid_model;
     }
 
     async getAll(){
