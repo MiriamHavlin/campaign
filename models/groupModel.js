@@ -14,7 +14,7 @@ const GroupModel = mongoose.model("groups", groupSchema);
 
 exports.GroupModel = GroupModel;
 
-exports.validGroup = (_bodyData)=>{
+exports.validGroup = (_bodyData)=> {
     let joiSchema=Joi.object({
     target:Joi.number().min(10000, "Your target must be at least 10000$").required,
     name:Joi.string().required,
