@@ -6,7 +6,7 @@ const campaignSchema = new mongoose.Schema({
     target : Number,
     description: String,
     managerId: String
-});
+}, {collection: "campaigns"});
 
 const CampaignModel = mongoose.model("groups", campaignSchema);
 

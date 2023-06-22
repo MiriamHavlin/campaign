@@ -1,12 +1,14 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+const {connect} = require("../models/mongoConnect");
 
-
-export class Repository{
+module.exports = class Repository{
     constructor(model){
+        connect();
         this.model = model;
     }
 
     async getAll(){
+        console.log("model: ", this.model);
         let items = await this.model.find({});
         return items;
     }

@@ -6,7 +6,7 @@ const fundRaiserSchema = new mongoose.Schema({
     target : Number,
     groupId: String,
     name: String
-});
+}, {collection: "fundRaisers"});
 
 const FundRaiserModel = mongoose.model("fundRaisers", fundRaiserSchema);
 

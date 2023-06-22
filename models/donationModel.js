@@ -6,9 +6,9 @@ const donationSchema = new mongoose.Schema({
     sum: Number,
     fundraiserId: String,
     donorName: String
-});
+}, {collection: "donations"});
 
-exports.validDonation=(_bodyData)=>{
+const validDonation = (_bodyData)=>{
     let joiSchema=Joi.object({
     sum:Joi.number().min(10).required,
     fundraiserId:Joi.string().required,
@@ -17,8 +17,8 @@ exports.validDonation=(_bodyData)=>{
     return joiSchema.validate(_bodyData);
     }
 
-    
+module.exports = validDonation;
 const DonationModel = mongoose.model("donations", donationSchema);
 
-exports.DonationModel = DonationModel;
+module.exports = DonationModel;
 

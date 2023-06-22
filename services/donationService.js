@@ -1,6 +1,8 @@
-import { DonationModel, validDonation } from "../models/donationModel";
-import { DonationRepo } from "../repositories/donationRepo";
-import { Service } from "./service";
+const DonationModel = require("../models/donationModel");
+const validDonation = require("../models/donationModel");
+
+const DonationRepo = require("../repositories/donationRepo");
+const Service = require("./service");
 
 const donationRepo = new DonationRepo(DonationModel);
 
@@ -10,4 +12,4 @@ class DonationService extends Service {
     }
 }
 
-export default new DonationService(donationRepo, validDonation);
+module.exports = new DonationService(donationRepo, validDonation);
