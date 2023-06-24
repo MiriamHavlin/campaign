@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-// const DonationService = require('../services/donationService')
-
-
 
 router.get('/', async (req, res) => {
     res.send(await DonationService.getAll())

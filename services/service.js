@@ -16,9 +16,9 @@ module.exports = class Service {
     }
 
     async insert(data) {
-        let validBody = this.valid_model(data);
+        const validBody = this.valid_model(data);
         if (validBody.error) {
-            return validBody.error;
+            return validBody;
         } else {
             return await this.repo.insert(data);
         }
@@ -27,7 +27,7 @@ module.exports = class Service {
     async update(id, data) {
         let validBody = this.valid_model(data);
         if (validBody.error) {
-            return validBody.error;
+            return validBody;
         } else {
             return await this.repo.update(id,data);
         }
