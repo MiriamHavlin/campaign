@@ -1,5 +1,4 @@
 
-
 module.exports = class Service {
 
     constructor(repo, valid_model) {
