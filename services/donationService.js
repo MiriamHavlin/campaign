@@ -10,7 +10,6 @@ const donationRepo = new DonationRepo(DonationModel);
 class DonationService extends Service {
     constructor(repo, valid_model) {
         super(repo, valid_model);
-        console.log("valid donation: ", valid_model);
     }
 }
 

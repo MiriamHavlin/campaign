@@ -10,13 +10,16 @@ const fundRaiserSchema = new mongoose.Schema({
 
 const FundRaiserModel = mongoose.model("fundRaisers", fundRaiserSchema);
 
-exports.FundRaiserModel = FundRaiserModel;
-
-exports.validFundRaiser=(_bodyData)=>{
+const validFundRaiserFunc =(_bodyData)=>{
     let joiSchema=Joi.object({
-    target:Joi.number().min(1000, "Your target must be at least 1000$").required,
-    groupId:Joi.string().required,
-    name:Joi.string().required
+    target:Joi.number().min(1000, "Your target must be at least 1000$").required(),
+    groupId:Joi.string().required(),
+    name:Joi.string().required()
     })
     return joiSchema.validate(_bodyData);
+    }
+
+    module.exports = {
+        FundRaiserModel : FundRaiserModel,
+        validFundRaiser : validFundRaiserFunc
     }
