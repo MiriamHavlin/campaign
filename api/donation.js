@@ -16,9 +16,7 @@ router.use(logger());
 
 router.post('/', async(req, res, next) =>{
     let result = await DonationService.insert(req.body);
-    console.log("result: ", result);
     if(result instanceof Error){
-        console.log("after typeof");
         next(result)
     }else if(result.error){
         next(result.error)

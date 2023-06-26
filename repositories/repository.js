@@ -8,7 +8,6 @@ module.exports = class Repository {
     }
 
     async getAll() {
-        console.log("model: ", this.model);
         let items = await this.model.find({});
         return items;
     }
@@ -34,12 +33,9 @@ module.exports = class Repository {
     }
 
     async updateCollectedField(sum, id) {
-        console.log("model: ", this.model);
         let current = await this.model.findById(id);
-        console.log("current",  current);
         if (current != undefined) {
             current.collected += sum;
-            console.log("current",  current);
             return await this.model.findByIdAndUpdate(id, current, { new: true });
         } else {
             return new Error("server error");

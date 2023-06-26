@@ -28,7 +28,6 @@ class DonationService extends Service {
             let groupId = fund.groupId;
             await groupService.repo.updateCollectedField(sum, groupId);
             let group = await groupService.repo.getById(fund.groupId);
-            console.log("group", group);
             let camId = group.campaignId;
             await campaignService.repo.updateCollectedField(sum, camId);
             return await this.repo.insert(data);
