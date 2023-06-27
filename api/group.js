@@ -5,14 +5,25 @@ const logger = require('../middlewares/logger');
 const errorMW = require('../middlewares/errors');
 
 router.get('/', async (req, res) => {
-    res.send(await groupService.getAll())
+    let result = await groupService.getAll();
+    if (result.error) {
+        next(result.error)
+    }
+    else {
+        res.send(result);
+    }
 })
 
 router.get(`/:id`, async (req, res) => {
-    res.send(await groupService.getById(req.params.id))
+    let result = await groupService.getById(req.params.id);
+    if (result.error) {
+        next(result.error)
+    }
+    else {
+        res.send(result);
+    }
 })
 
-router.use(logger());
 
 router.post('/', async (req, res, next) => {
     let result = await groupService.insert(req.body);
@@ -40,7 +51,13 @@ router.put(`/:id`, async (req, res, next) => {
 });
 
 router.delete(`/:id`, async (req, res) =>{
-    res.send(await groupService.delete(req.params.id));
+    let result = await groupService.delete(req.params.id);
+    if (result.error) {
+        next(result.error)
+    }
+    else {
+        res.send(result);
+    }
 });
 
 router.use(errorMW);

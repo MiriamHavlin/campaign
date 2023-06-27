@@ -6,10 +6,22 @@ const errorMW = require('../middlewares/errors');
 const { error } = require('console');
 
 router.get('/', async (req, res) => {
-    res.send(await DonationService.getAll())
+    let result = await DonationService.getAll();
+    if (result.error) {
+        next(result.error)
+    }
+    else {
+        res.send(result);
+    }
 })
 router.get(`/:id`, async (req, res) => {
-    res.send(await DonationService.getById(req.params.id))
+    let result = await DonationService.getById(req.params.id);
+    if (result.error) {
+        next(result.error)
+    }
+    else {
+        res.send(result);
+    }
 })
 
 router.use(logger());
