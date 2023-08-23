@@ -14,3 +14,4 @@ class CampaignService extends Service {
 }
 
 module.exports = new CampaignService(campaignRepo, validcampaign);
+//a minor change for a commit

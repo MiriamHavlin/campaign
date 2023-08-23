@@ -39,3 +39,4 @@ class FundRaiserService extends Service {
 }
 
 module.exports = new FundRaiserService(fundRaiserRepo, validFundRaiser);
+//a minor change for a commit

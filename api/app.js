@@ -21,3 +21,4 @@ app.use('/api/campaigns', campaign);
 app.listen(3000, () => {
     console.log('server is up and running')
 });
+//a minor change for a commit

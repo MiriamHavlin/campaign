@@ -40,3 +40,4 @@ class GroupService extends Service {
 }
 
 module.exports = new GroupService(groupRepo, validgroup);
+//a minor change for a commit

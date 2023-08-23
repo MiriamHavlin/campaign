@@ -9,3 +9,4 @@ module.exports = class FundRaiserRepo extends Repository{
         return await this.model.find({"groupId" : id});
     }
 }
+//a minor change for a commit

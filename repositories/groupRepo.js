@@ -5,3 +5,4 @@ module.exports = class GroupRepo extends Repository{
         super(model);
       }
 }
+//a minor change for a commit

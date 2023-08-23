@@ -39,3 +39,4 @@ class DonationService extends Service {
 }
 
 module.exports = new DonationService(donationRepo, validDonation);
+//a minor change for a commit
